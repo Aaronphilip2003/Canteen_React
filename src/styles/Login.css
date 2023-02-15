@@ -2,7 +2,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 45vh;
+  margin-left: 1%;
+}
+
+.image {
+  margin-bottom: 0px;
+  display: flex;
+  margin-left: 22%;
+
+}
+
+.header {
+  margin-bottom: 0px;
+  display: flex;
+  margin-left: 36%;
+  margin-top: 5%;
+
 }
 
 

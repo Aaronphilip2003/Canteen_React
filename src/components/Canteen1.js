@@ -50,6 +50,7 @@ function Canteen1() {
                 <input
                   type="checkbox"
                   onChange={(event) => handleCheckboxChange(event, index)}
+                  checked={item.selected}
                 />
                 {item.item} - {item.price}
               </label>

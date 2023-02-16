@@ -21,9 +21,11 @@ function Canteen1() {
   };
 
   const handleSubmit = (event) => {
+    const Canteen_Number = "Canteen 1";
     event.preventDefault();
     const selectedItems = items.filter((item) => item.selected);
     const canteenItems = selectedItems.map((item) => ({
+      canteen_number: Canteen_Number,
       item: item.item,
       price: item.price,
     }));

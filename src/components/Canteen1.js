@@ -23,11 +23,11 @@ function Canteen1() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const selectedItems = items.filter((item) => item.selected);
-    const totalPrice = selectedItems.reduce((acc, item) => acc + item.price, 0);
     const canteenItems = selectedItems.map((item) => ({
       item: item.item,
       price: item.price,
     }));
+    const totalPrice = selectedItems.reduce((acc, item) => acc + item.price, 0);
     const data = { items: canteenItems, totalPrice: totalPrice };
 
     axios

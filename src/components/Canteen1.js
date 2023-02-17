@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../styles/Canteen.css";
 
 function Canteen1() {
   const [items, setItems] = useState([]);
@@ -59,7 +60,7 @@ function Canteen1() {
             </li>
           ))}
         </ul>
-        <button type="submit">Submit</button>
+        <button type="submit">Proceed to order</button>
       </form>
     </div>
   );

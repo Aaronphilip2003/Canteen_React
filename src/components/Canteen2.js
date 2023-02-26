@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/Canteen.css"
+import "../styles/Canteen.css";
 
 function Canteen2() {
   const [items, setItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     try {
@@ -37,13 +38,14 @@ function Canteen2() {
       .post("http://localhost:8080/canteen", data)
       .then((response) => {
         console.log(response);
+        setSelectedItems(selectedItems);
         setItems(items.map((item) => ({ ...item, selected: false })));
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div>
+    <div className="canteen-container">
       <h2>Canteen 2 Items:</h2>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -62,6 +64,18 @@ function Canteen2() {
         </ul>
         <button type="submit">Proceed to order</button>
       </form>
+      {selectedItems.length > 0 && (
+        <div>
+          <h3>Ordered Items:</h3>
+          <ul>
+            {selectedItems.map((item, index) => (
+              <li key={index}>
+                {item.item} - {item.price}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

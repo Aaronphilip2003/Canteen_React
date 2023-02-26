@@ -4,6 +4,7 @@ import "../styles/Canteen.css";
 
 function Canteen1() {
   const [items, setItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     try {
@@ -25,6 +26,7 @@ function Canteen1() {
     const Canteen_Number = "Canteen 1";
     event.preventDefault();
     const selectedItems = items.filter((item) => item.selected);
+    setSelectedItems(selectedItems);
     const canteenItems = selectedItems.map((item) => ({
       canteen_number: Canteen_Number,
       item: item.item,
@@ -43,7 +45,7 @@ function Canteen1() {
   };
 
   return (
-    <div>
+    <div className="canteen-container">
       <h2>Canteen 1 Items:</h2>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -62,6 +64,18 @@ function Canteen1() {
         </ul>
         <button type="submit">Proceed to order</button>
       </form>
+      {selectedItems.length > 0 && (
+        <div>
+          <h3>Ordered Items:</h3>
+          <ul>
+            {selectedItems.map((item, index) => (
+              <li key={index}>
+                {item.item} - {item.price}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

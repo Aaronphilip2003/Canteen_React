@@ -7,6 +7,8 @@ import Canteen1 from "./components/Canteen1";
 import Canteen2 from "./components/Canteen2";
 import Canteen3 from "./components/Canteen3";
 import Admin1 from "./components/Admin1";
+import Admin2 from "./components/Admin2";
+import Admin3 from "./components/Admin3";
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
           <Route path="/canteen2" element={<Canteen2 />} />
           <Route path="/canteen3" element={<Canteen3 />} />
           <Route path="/admin1" element={<Admin1 />} />
+          <Route path="/admin2" element={<Admin2 />} />
+          <Route path="/admin3" element={<Admin3 />} />
         </Routes>
       </BrowserRouter>
     </div>

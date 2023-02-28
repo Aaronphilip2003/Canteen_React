@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Admin1.css";
 
-const Admin1 = () => {
+const Admin3 = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/admin1")
+      .get("http://localhost:8080/admin3")
       .then((res) => {
         console.log(res.data);
         setItems(res.data);
@@ -24,7 +24,7 @@ const Admin1 = () => {
 
   return (
     <div className="admin1-container">
-      <h1>Canteen 1 Items</h1>
+      <h1>Canteen 3 Items</h1>
       <table>
         <thead>
           <tr>
@@ -38,4 +38,4 @@ const Admin1 = () => {
   );
 };
 
-export default Admin1;
+export default Admin3;

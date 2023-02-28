@@ -3,11 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import mitLogo from "../images/mitLogo.png";
+import Popup from "../components/Popup";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -18,12 +19,10 @@ const Login = () => {
       password,
     });
 
-    // setMessage(response.data);
-    // console.log(response.data);
-
     if (response.data === "Login Successful") {
-      setMessage("success");
       navigate("/main");
+    } else {
+      setShowPopup(true);
     }
   };
 
@@ -53,7 +52,21 @@ const Login = () => {
           />
           <button type="submit">Login</button>
         </form>
-        {message && <div>{message}</div>}
+
+        <Popup
+          open={showPopup}
+          onClose={() => setShowPopup(false)}
+          title="Error"
+          actions={[
+            {
+              label: "Close",
+              color: "primary",
+              onClick: () => setShowPopup(false),
+            },
+          ]}
+        >
+          <div>Username / Password does not match!</div>
+        </Popup>
 
         <div>
           <a href="/register">Register</a>
